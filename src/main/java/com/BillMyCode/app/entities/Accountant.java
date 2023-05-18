@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.BillMyCode.app.entidades;
+package com.BillMyCode.app.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -18,11 +18,11 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Contador extends User {
+public class Accountant extends User {
 
     private Double reputacion; 
     @OneToMany
-    private List<Comentario> comentario;
+    private List<Comment> comment;
     private String matricula;
     private List<String> especializaciones;
     private Double honorarios;

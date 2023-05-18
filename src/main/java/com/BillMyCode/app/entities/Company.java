@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.BillMyCode.app.entidades;
+package com.BillMyCode.app.entities;
 
 import java.util.List;
 import jakarta.persistence.Entity;
@@ -23,7 +23,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Empresa {
+public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +43,7 @@ public class Empresa {
     private List<Developer> developer;
     private Double reputacion;
     @OneToMany
-    private List<Comentario> comentario;
+    private List<Comment> comment;
     private Boolean status;
 
 }

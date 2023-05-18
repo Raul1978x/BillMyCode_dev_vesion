@@ -1,11 +1,11 @@
-package com.BillMyCode.app.controladores;
+package com.BillMyCode.app.controllers;
 
-import com.BillMyCode.app.entidades.Comentario;
-import com.BillMyCode.app.entidades.Empresa;
-import com.BillMyCode.app.entidades.User;
-import com.BillMyCode.app.excepciones.MiException;
-import com.BillMyCode.app.servicios.DeveloperService;
-import com.BillMyCode.app.servicios.ImageService;
+import com.BillMyCode.app.entities.Comment;
+import com.BillMyCode.app.entities.Company;
+import com.BillMyCode.app.entities.User;
+import com.BillMyCode.app.exceptions.MiException;
+import com.BillMyCode.app.services.DeveloperService;
+import com.BillMyCode.app.services.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -28,41 +28,28 @@ public class DeveloperController {
 
     private ImageService imageService;
 
-
-
-
-
     @GetMapping("/cuentadeveloper")
     public String  cuentadeveloper() {
         return "crear-cuenta-desarrollador.html";
     }
 
-    @PostMapping("/cuentausuario")
+    @PostMapping("/cuentaDeveloper")
     public String registrarDeveloper(@RequestParam User user,
                                      @RequestParam(required = false)Double salario,
                                      @RequestParam(required = false) String seniority,
                                      @RequestParam(required = false) String especialidad,
                                      @RequestParam(required = false) String descripcion,
-                                     @RequestParam(required = false) Comentario comentario,
-                                     @RequestParam(required = false) List<Empresa> empresas,
+                                     @RequestParam(required = false) Comment comment,
                                      ModelMap model)
             throws MiException {
 
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date fechaNac = user.getFechaNacimiento();
-
         try {
-            fechaNac = format.parse(fechaNacStr);
-            developerService.createDeveloper( user, salario, seniority, especialidad, fechaNac, descripcion, comentario, empresas);
+            developerService.createDeveloper( user, salario, seniority, especialidad, descripcion, comment);
             model.put("exito", "el developer fue creado exitosamente");
 
         } catch (MiException e) {
             model.put("error", e.getMessage());
             return "crear-cuenta-desarrollo.html";
-        } catch (ParseException e) {
-            model.put("error", "La fecha de nacimiento es inválida.");
-            return "redirect:/cuentauser";
-
         }
         return "redirect:/cuentauser";
     }
