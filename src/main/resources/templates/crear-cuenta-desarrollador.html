@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="shortcut icon" href="images/billmycodelogosimp.png">
+  <link rel="stylesheet" href="/css/shared.css">
+  <title>Crear Cuenta</title>
+ </head>
+
+ <body>
+  <header>
+    <div class="logo-container">
+      <a th:href="@{/}">
+        <img src="/images/billmycodelogo.png" alt="logo de empresa">
+      </a>
+    </div>
+    <nav>
+      <a href="#seccion-2">Sobre la Empresa</a>
+      <a href="#seccion-3">Normativa</a>
+      <a href="#seccion-4">Impuestos</a>
+      <a href="#seccion-5">Contactanos</a>
+    </nav>
+  </header>
+
+  <div id="contenedor">
+    <div id="central">
+      <div id="accounts">
+        <div class="titulo">
+          <div>
+            <img src="/images/billmycodelogo.png" alt="logo de empresa">
+          </div>
+          <div>
+            <h4>
+            CREA TU CUENTA DEVELOPER <h4> 
+            </h2>
+          </div>
+        </div>
+        <form id="accountsform">
+          <input type="number" name="Salario" placeholder="Salario" required>
+          <select id="gdes" name="señality" class="form-control">
+            <option value="">Grado de Señality</option>
+            <option value="Trainee">Trainee</option>
+            <option value="Junior">Junior</option>
+            <option value="Senior">Senior</option>
+            <option value="Super Senior">Super Senior</option>
+          </select>
+          <select id="esp" name="especialidad" class="form-control">
+            <option value="">Especialidad</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Full Stack">Full Stack</option>
+            <option value="Q.A">Q.A</option>
+          </select>
+          <textarea rou=3 class="text-area" placeholder="Descripción"></textarea>
+          <textarea rou=3 class="text-area" placeholder="Comentario de la Empresa"></textarea>
+          <input type="text" name="Empresa" placeholder="Empresa" required>
+          <select id="econt" name="contador" class="form-control">
+            <option value="">Elija un Contador</option>
+            <option value="">Raul</option>
+            <option value="">Alex</option>
+            <option value="">Agustina</option>
+            <option value="">Brian</option>
+          </select>
+          <button class="developer-boton" type="submit" title="crear" name="crear">CREAR DEVELOPER</button>
+        </form>
+      </div>
+      <div class="inferior">
+        <a th:href='@{/cuentauser}'>VOLVER</a>
+      </div>
+    </div>
+  </div>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
+  </body>
+
+</html>
