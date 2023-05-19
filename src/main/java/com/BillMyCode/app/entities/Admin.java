@@ -1,4 +1,4 @@
-package com.BillMyCode.app.entidades;
+package com.BillMyCode.app.entities;
 
 import jakarta.persistence.*;
 

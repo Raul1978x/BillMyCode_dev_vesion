@@ -1,6 +1,6 @@
-package com.BillMyCode.app.repositorios;
+package com.BillMyCode.app.repositories;
 
-import com.BillMyCode.app.entidades.User;
+import com.BillMyCode.app.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

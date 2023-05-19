@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.BillMyCode.app.entidades;
+package com.BillMyCode.app.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * @author agust
@@ -19,14 +16,18 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-public class Comentario {
+public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Lob
-    private String comentario;
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
 
+    private String mime;
+    private String nombre;
+
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "contenido", columnDefinition = "LONGBLOB")
+    private byte[] contenido;
 }
+

@@ -1,9 +1,9 @@
-package com.BillMyCode.app.servicios;
+package com.BillMyCode.app.services;
 
-import com.BillMyCode.app.entidades.Image;
-import com.BillMyCode.app.entidades.User;
-import com.BillMyCode.app.enumeraciones.Rol;
-import com.BillMyCode.app.repositorios.IUserRepository;
+import com.BillMyCode.app.entities.Image;
+import com.BillMyCode.app.entities.User;
+import com.BillMyCode.app.enumerations.Rol;
+import com.BillMyCode.app.repositories.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +37,7 @@ public class UserService {
     }
 
     @Transactional
-    public void createUser(MultipartFile archivo,
+    public User createUser(MultipartFile archivo,
                            String nombre,
                            String apellido,
                            String email,
@@ -65,6 +65,8 @@ public class UserService {
         user.setImage(image);
 
         userRepository.save(user);
+
+        return user;
     }
     @Transactional
     public void updateUser(Long id,

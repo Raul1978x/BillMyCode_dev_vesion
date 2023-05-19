@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.BillMyCode.app.entidades;
+package com.BillMyCode.app.entities;
 
-import com.BillMyCode.app.enumeraciones.Rol;
+import com.BillMyCode.app.enumerations.Rol;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

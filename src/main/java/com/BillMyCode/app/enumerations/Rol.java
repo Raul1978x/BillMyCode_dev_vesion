@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.BillMyCode.app.excepciones;
+package com.BillMyCode.app.enumerations;
 
 /**
  *
  * @author agust
  */
-public class MiException extends Exception {
-    
-    public MiException(String msg){
-    super(msg);
-    }
+
+public enum Rol {
+    GUEST,ADMIN,DEV,ACCOUNTER;
 }

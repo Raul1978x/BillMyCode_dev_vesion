@@ -1,7 +1,7 @@
-package com.BillMyCode.app.servicios;
+package com.BillMyCode.app.services;
 
-import com.BillMyCode.app.entidades.Image;
-import com.BillMyCode.app.repositorios.IImageRepository;
+import com.BillMyCode.app.entities.Image;
+import com.BillMyCode.app.repositories.IImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

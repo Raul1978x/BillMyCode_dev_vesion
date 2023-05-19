@@ -1,23 +1,20 @@
-package com.BillMyCode.app.servicios;
+package com.BillMyCode.app.services;
 
-import com.BillMyCode.app.entidades.*;
-import com.BillMyCode.app.enumeraciones.Rol;
-import com.BillMyCode.app.excepciones.MiException;
-import com.BillMyCode.app.repositorios.IDeveloperRepositorio;
+import com.BillMyCode.app.entities.*;
+import com.BillMyCode.app.enumerations.Rol;
+import com.BillMyCode.app.exceptions.MiException;
+import com.BillMyCode.app.repositories.IDeveloperRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
 public class DeveloperService {
 
     @Autowired
-    private IDeveloperRepositorio repositorio;
+    private IDeveloperRepository repositorio;
 
     @Autowired
     private ImageService imageService;
@@ -56,7 +53,7 @@ public class DeveloperService {
      * @param seniority
      * @param especialidad
      * @param descripcion
-     * @param comentario
+     * @param comment
      * @throws MiException
      */
    /* @Transactional
@@ -88,8 +85,8 @@ public class DeveloperService {
                                 String seniority,
                                 String especialidad,
                                 String descripcion,
-                                Comentario comentario) throws MiException {
-        validate(descripcion, seniority, especialidad, comentario, salario);
+                                Comment comment) throws MiException {
+        validate(descripcion, seniority, especialidad, comment, salario);
 
         Developer developer = new Developer();
 
@@ -108,7 +105,7 @@ public class DeveloperService {
         developer.setSeniority(seniority);
         developer.setEspecialidad(especialidad);
         developer.setDescripcion(descripcion);
-        developer.setComentario(comentario);
+        developer.setComment(comment);
         /*developer.setEmpresa(empresa);*/
 
         repositorio.save(developer);
@@ -137,8 +134,8 @@ public class DeveloperService {
     public void validate(String salario,
                          String seniority,
                          String especialidad,
-                         String descripcion,
-                         Comentario comentario) {
+                         Comment descripcion,
+                         Double comentario) {
 
         if (salario.isEmpty() || salario == "") {
             System.out.println("El salario no puede ser nulo o estar vacio");
@@ -149,7 +146,7 @@ public class DeveloperService {
         if (especialidad.isEmpty() || especialidad == "") {
             System.out.println("La especialidad no puede ser nula o estar vacia");
         }
-        if (descripcion.isEmpty() || descripcion == "") {
+        if (descripcion == null) {
             System.out.println("La descripcion no puede ser nula o estar vacia");
         }
         if (comentario == null) {

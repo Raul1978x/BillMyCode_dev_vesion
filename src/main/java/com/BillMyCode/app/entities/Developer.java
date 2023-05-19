@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.BillMyCode.app.entidades;
+package com.BillMyCode.app.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -27,10 +27,10 @@ public class Developer extends User {
     @Lob
     protected String descripcion;
     @OneToOne
-    protected Comentario comentario;
+    protected Comment comment;
     @ManyToMany
-    protected List<Empresa> empresa;
+    protected List<Company> company;
     @OneToOne
-    protected Contador contador;
+    protected Accountant accountant;
     
 }
